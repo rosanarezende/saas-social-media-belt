@@ -58,7 +58,7 @@ Um software de gerenciamento de links compartilhados.
 
 Desenvolvimento de um protótipo de baixa fidelidade no [Figma](https://www.figma.com/file/HKXZoDqn9z9OR7PjmQaOsB/Untitled?node-id=0%3A1)
 
-![protótipo de baixa fidelidade](https://user-images.githubusercontent.com/45580434/152659562-d742537d-514d-4380-b868-45acdc7373f1.png)
+![protótipo de baixa fidelidade](https://user-images.githubusercontent.com/45580434/152661489-57ac64a4-caae-4300-b621-aee6ade3586b.png)
 
 <br>
 
@@ -68,6 +68,7 @@ Desenvolvimento de um protótipo de baixa fidelidade no [Figma](https://www.figm
 - [React](https://pt-br.reactjs.org/)
 - [Next](https://nextjs.org/) (projeto criado com `npx create-next-app@latest --ts`)
 - [Tailwindcss](https://tailwindcss.com/docs/guides/nextjs) (inclusive usamos um template do [Tail-kit](https://www.tailwind-kit.com/templates/datadashboard), adaptando o [html para jsx](https://magic.reactjs.net/htmltojsx.htm) )
+- [React Hook Form](https://react-hook-form.com/)
 
 <br>
 
