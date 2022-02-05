@@ -1,14 +1,35 @@
+import React from 'react'
+import { useForm, SubmitHandler } from 'react-hook-form'
+
 import Heading1 from 'components/Heading1'
 import Heading2 from 'components/Heading2'
-import React from 'react'
 
 interface Props {
   children: React.ReactNode
 }
 
+type NewLinkForm = {
+  name: string
+  publicName: string
+  slug: string
+  destination: string
+  appLink: string
+}
+
 const Form = () => {
+  const { register, handleSubmit, watch } = useForm<NewLinkForm>()
+
+  const onSubmit: SubmitHandler<NewLinkForm> = (inputsData) => {
+    console.log(inputsData)
+  }
+
+  console.log(watch('name'))
+
   return (
-    <form className='container max-w-2xl mx-auto shadow-md md:w-3/4 mt-4'>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className='container max-w-2xl mx-auto shadow-md md:w-3/4 mt-4'
+    >
       <div className='p-4 bg-gray-100 border-t-2 border-indigo-400 rounded-lg bg-opacity-5'>
         <div className='max-w-sm mx-auto md:w-full md:mx-0'>
           <div className='inline-flex items-center space-x-4'>
@@ -23,25 +44,25 @@ const Form = () => {
             <div className=' relative '>
               <input
                 type='text'
-                id='name'
                 className=' rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent'
                 placeholder='Nome interno'
+                {...register('name')}
               />
             </div>
             <div className=' relative '>
               <input
                 type='text'
-                id='public-name'
                 className=' rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent'
                 placeholder='Nome público'
+                {...register('publicName')}
               />
             </div>
             <div className=' relative '>
               <input
                 type='text'
-                id='slug'
                 className=' rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent'
                 placeholder='Identificador (slug)'
+                {...register('slug')}
               />
             </div>
           </div>
@@ -54,9 +75,9 @@ const Form = () => {
               <div className=' relative '>
                 <input
                   type='text'
-                  id='http-public'
                   className=' rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent'
                   placeholder='http://'
+                  {...register('destination')}
                 />
               </div>
             </div>
@@ -64,9 +85,9 @@ const Form = () => {
               <div className=' relative '>
                 <input
                   type='text'
-                  id='http-private'
                   className=' rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent'
                   placeholder='TDB: link interno para app'
+                  {...register('appLink')}
                 />
               </div>
             </div>
