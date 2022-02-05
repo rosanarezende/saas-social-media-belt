@@ -1,6 +1,81 @@
+# SaaS (Software as a Service) | Social Media Belt
+
+Desenvolvido durante o [D30](https://www.youtube.com/c/DevPlenoD30) promovido pelo DevPleno em fev/2022.
+
+<br>
+
+## Sobre
+
+Um software de gerenciamento de links compartilhados.
+
+### Objetivos:
+
+- Must have:
+  - Gerenciar os links
+  - Agrupá-los
+  - Gerenciar ou gerar as UTMs
+  - Página pública com todos os links (selecionados)
+  - Encurtar um link
+
+- Nice to have:
+  - Domínio próprio
+  - Analytics: quantos clicks, de onde vieram...
+  - Link nativo: abrir o app direto (one link...)
+  - p2p ou banco de imagens (poder enviar do PC para o celular)
+
+  vai.devpleno.co/fsm-insta -> go.devpleno.com/formacaofsm?utm=lalala
+
+
+### Dados:
+
+- Accounts(tenant)
+  - id, slug (devpleno), plan, name, image (logo)
+- AccountUser:
+  - account_id, user_id, role
+- Subscription:
+  - TBD (_to be defined_)
+- User:
+  - id, email, name
+- Link
+  - id, account_id, name, public_name, destination, slug, show_on_public
+- UTMs:
+  - utm_source, utm_media, ...
+- LinkGroup:
+  - id, account_id, name (n:m - Link), show_on_public
+- ShareableLink:
+  - id, account_id, link_id, utm_id, analytics
+
+
+### Regras (uso justo, e que favoreça o premium):
+- tentar limitar o número de sign-ins
+- limitar o número de domínios de destino
+  - somente para: devpleno.com
+- somente permitir algumas funcionalidades em contas premium
+
+<br>
+
+## Planejamento das telas
+
+Desenvolvimento de um protótipo de baixa fidelidade no [Figma](https://www.figma.com/file/HKXZoDqn9z9OR7PjmQaOsB/Untitled?node-id=0%3A1)
+
+![protótipo de baixa fidelidade](https://user-images.githubusercontent.com/45580434/152659562-d742537d-514d-4380-b868-45acdc7373f1.png)
+
+<br>
+
+## Linguagens/tecnologias utilizadas
+
+- Typescript
+- [React](https://pt-br.reactjs.org/)
+- [Next](https://nextjs.org/) (projeto criado com `npx create-next-app@latest --ts`)
+- [Tailwindcss](https://tailwindcss.com/docs/guides/nextjs) (inclusive usamos um template do [Tail-kit](https://www.tailwind-kit.com/templates/datadashboard), adaptando o [html para jsx](https://magic.reactjs.net/htmltojsx.htm) )
+
+<br>
+
+## Como rodar o projeto?
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+### Getting Started
 
 First, run the development server:
 
@@ -12,22 +87,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
+### Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
