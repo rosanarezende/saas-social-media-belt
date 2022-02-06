@@ -69,6 +69,7 @@ Desenvolvimento de um protótipo de baixa fidelidade no [Figma](https://www.figm
 - [Next](https://nextjs.org/) (projeto criado com `npx create-next-app@latest --ts`)
 - [Tailwindcss](https://tailwindcss.com/docs/guides/nextjs) (inclusive usamos um template do [Tail-kit](https://www.tailwind-kit.com/templates/datadashboard), adaptando o [html para jsx](https://magic.reactjs.net/htmltojsx.htm) )
 - [React Hook Form](https://react-hook-form.com/)
+- [Yup](https://github.com/jquense/yup) - [schema validation](https://react-hook-form.com/get-started#SchemaValidation)
 
 <br>
 

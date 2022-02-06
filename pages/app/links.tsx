@@ -1,14 +1,12 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import Heading1 from 'components/Heading1'
 import Heading2 from 'components/Heading2'
 
-interface Props {
-  children: React.ReactNode
-}
-
-type NewLinkForm = {
+type NewLinkInputs = {
   name: string
   publicName: string
   slug: string
@@ -16,14 +14,30 @@ type NewLinkForm = {
   appLink: string
 }
 
-const Form = () => {
-  const { register, handleSubmit, watch } = useForm<NewLinkForm>()
+const schema = yup
+  .object({
+    name: yup.string().required(),
+    publicName: yup.string().required(),
+    slug: yup.string().required(),
+    destination: yup.string().required(),
+    appLink: yup.string().required()
+  })
+  .required()
 
-  const onSubmit: SubmitHandler<NewLinkForm> = (inputsData) => {
+const NewLinkForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<NewLinkInputs>({
+    resolver: yupResolver(schema)
+  })
+
+  const onSubmit: SubmitHandler<NewLinkInputs> = (inputsData) => {
     console.log(inputsData)
   }
 
-  console.log(watch('name'))
+  console.log(errors)
 
   return (
     <form
@@ -48,6 +62,8 @@ const Form = () => {
                 placeholder='Nome interno'
                 {...register('name')}
               />
+              {/* TODO */}
+              <p>{errors.name?.message && 'campo obrigatório'}</p>
             </div>
             <div className=' relative '>
               <input
@@ -107,6 +123,10 @@ const Form = () => {
   )
 }
 
+interface Props {
+  children: React.ReactNode
+}
+
 const Links = ({ children }: Props) => {
   return (
     <>
@@ -132,7 +152,7 @@ const Links = ({ children }: Props) => {
         </div>
       </div>
 
-      <Form />
+      <NewLinkForm />
       {children}
     </>
   )
