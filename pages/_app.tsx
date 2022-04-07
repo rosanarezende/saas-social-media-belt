@@ -8,11 +8,14 @@ import LayoutTenant from 'components/Layout/LayoutTenant'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter()
+
   let Layout = LayoutPublic
-  if (pathname.indexOf('/app') === 0) {
+
+  if (pathname.includes('/app')) {
     Layout = LayoutApp
   }
-  if (pathname.indexOf('/[slug]') === 0) {
+
+  if (pathname.includes('/[slug]')) {
     Layout = LayoutTenant
   }
 

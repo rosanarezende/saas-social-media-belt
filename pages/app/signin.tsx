@@ -1,3 +1,5 @@
+import Heading1 from 'components/Heading1'
+import Heading2 from 'components/Heading2'
 import React from 'react'
 
 interface Props {
@@ -7,7 +9,8 @@ interface Props {
 const SignIn = ({ children }: Props) => {
   return (
     <>
-      <h1>SignIn</h1>
+      <Heading1>SignIn</Heading1>
+      <Heading2>xxxx</Heading2>
       {children}
     </>
   )

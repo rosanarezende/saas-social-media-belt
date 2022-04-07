@@ -6,10 +6,10 @@ interface Props {
 
 const LayoutPublic = ({ children }: Props) => {
   return (
-    <>
-      <h1>Layout Public</h1>
+    <main className='bg-gray-100 dark:bg-gray-800 h-screen overflow-hidden relative'>
+      Layout Public
       {children}
-    </>
+    </main>
   )
 }
 

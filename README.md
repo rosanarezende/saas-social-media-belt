@@ -13,19 +13,19 @@ Software de gerenciamento de links compartilhados.
 
 ## Linguagens/tecnologias utilizadas
 
-
 **Frontend**:
-- Typescript
+- [TypeScript](https://www.typescriptlang.org/): superset de JavaScript
 - [React](https://pt-br.reactjs.org/)
-- [Next](https://nextjs.org/) (projeto criado com `npx create-next-app@latest --ts`)
-- [Tailwindcss](https://tailwindcss.com/docs/guides/nextjs) (inclusive usamos um template do [Tail-kit](https://www.tailwind-kit.com/templates/datadashboard), adaptando o [html para jsx](https://magic.reactjs.net/htmltojsx.htm) )
+- [NextJS](https://nextjs.org/): Framework React (projeto criado com `npx create-next-app@latest --ts`)
+- [Vercel](https://vercel.com/) - [platforms](https://github.com/vercel/platforms): para deployment
+- [Tailwindcss](https://tailwindcss.com/docs/guides/nextjs): para estilização/CSS (inclusive usamos um template do [Tail-kit](https://www.tailwind-kit.com/templates/datadashboard), adaptando o [html para jsx](https://magic.reactjs.net/htmltojsx.htm) )
 - [React Hook Form](https://react-hook-form.com/)
 - [Yup](https://github.com/jquense/yup) - [schema validation](https://react-hook-form.com/get-started#SchemaValidation)
 
 
 **Backend**:
 - [Docker](https://www.docker.com/)
-- [Prisma](https://www.prisma.io/) - ORM.
+- [Prisma](https://www.prisma.io/): ORM (para acesso ao DB)
 - [PostegreSQL](https://www.postgresql.org/) - DB.
 - [Cockroach](https://www.cockroachlabs.com/) - provedor.
 - [Beekeeper Studio](https://www.beekeeperstudio.io/)
@@ -34,11 +34,7 @@ Software de gerenciamento de links compartilhados.
 
 ## Como rodar o projeto?
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-### Getting Started
-
-First, run the development server:
+Primeiro, rode o servidor de desenvolvimento:
 
 ```bash
 npm run dev
@@ -46,10 +42,4 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Em seguida, abra [http://localhost:3000](http://localhost:3000) com o browser para visualizar o resultado.

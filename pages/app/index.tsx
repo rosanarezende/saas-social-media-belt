@@ -1,11 +1,13 @@
 import Heading1 from 'components/Heading1'
 import Heading2 from 'components/Heading2'
 
-const AppHome = () => {
+const Home = () => {
   return (
     <>
-      <Heading1>Seja bem-vindo!</Heading1>
+      <Heading1>Seja bem-vindo!!!</Heading1>
+
       <Heading2>Gerenciador de links</Heading2>
+
       <div className='flex my-6 items-center w-full space-y-4 md:space-x-4 md:space-y-0 flex-col md:flex-row'>
         <div className='w-full md:w-6/12'>
           <div className='shadow-lg w-full bg-white dark:bg-gray-700 relative overflow-hidden'>
@@ -70,6 +72,7 @@ const AppHome = () => {
           </div>
         </div>
       </div>
+
       <div className='flex items-center space-x-4'>
         <button className='flex items-center text-gray-400 text-md border-gray-300 border px-4 py-2 rounded-tl-sm rounded-bl-full rounded-r-full'>
           <svg
@@ -98,6 +101,7 @@ const AppHome = () => {
           Compared to oct 1- otc 30, 2020
         </span>
       </div>
+
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4'>
         <div className='w-full'>
           <div className='shadow-lg px-4 py-6 w-full bg-white dark:bg-gray-700 relative'>
@@ -605,4 +609,4 @@ const AppHome = () => {
     </>
   )
 }
-export default AppHome
+export default Home

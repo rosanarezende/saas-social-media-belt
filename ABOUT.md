@@ -2,41 +2,44 @@
 
 Software de gerenciamento de links compartilhados.
 
+OBS: será **multi tenant**, ou seja, uma base de código atendendo todos os clientes.
+
 <br>
 
 ## Objetivos
 
-- Must have:
+- Deve ter (*must have*):
   - Gerenciar os links
   - Agrupá-los
   - Gerenciar ou gerar as UTMs
   - Página pública com todos os links (selecionados)
   - Encurtar um link
+    - #ex: vai.devpleno.co/fsm-insta -> go.devpleno.com/formacaofsm?utm=lalala
 
-- Nice to have:
+- Seria bom ter também (*nice to have*):
   - Domínio próprio
   - Analytics: quantos clicks, de onde vieram...
-  - Link nativo: abrir o app direto (one link...)
-  - p2p ou banco de imagens (poder enviar do PC para o celular)
-
-  vai.devpleno.co/fsm-insta -> go.devpleno.com/formacaofsm?utm=lalala
+  - Link nativo: abrir o app direto (#ex: one link...)
+  - p2p ou banco de imagens (para poder enviar do PC para o celular)
 
 <br>
 
 ## Dados
 
-- Accounts(tenant)
+- Account (tenant):
   - id, slug (devpleno), plan, name, image (logo)
 - AccountUser:
   - account_id, user_id, role
-- Subscription:
-  - TBD (_to be defined_)
+- AccountDomain:
+  - id, account_id, domain, status
 - User:
   - id, email, name
-- Link
-  - id, account_id, name, public_name, destination, slug, show_on_public
+- Subscription:
+  - TBD (_to be defined_)
 - UTMs:
   - utm_source, utm_media, ...
+- Link
+  - id, account_id, name, public_name, destination, slug, show_on_public
 - LinkGroup:
   - id, account_id, name (n:m - Link), show_on_public
 - ShareableLink:
@@ -45,10 +48,15 @@ Software de gerenciamento de links compartilhados.
 <br>
 
 ## Regras (uso justo, e que favoreça o premium)
-- tentar limitar o número de sign-ins
+
+- limitar o número de sign-ins
+  - podemos tentar, mas não é certeza que conseguiremos
 - limitar o número de domínios de destino
-  - somente para: devpleno.com
+  - somente para 'devpleno.com', por exemplo, e links de outras plataformas, como youtube
+  - isso ajudaria a limitar casos de mau uso, como uma agência colocar todos os domínios de seus clientes em uma única conta
+  - no início a gente pode até não limitar, mas começar a analisar isso... e se necessário mudar os termos de serviço e implementar a limitação
 - somente permitir algumas funcionalidades em contas premium
+  - #ex: link nativo
 
 <br>
 
@@ -92,26 +100,22 @@ E localmente iremos manipular o banco com o [Beekeeper Studio](https://www.beeke
 docker run --name basic-postgres --rm -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=123456 -e PGDATA=/var/lib/postgresql/data/pgdata -v /tmp:/var/lib/postgresql/data -p 5432:5432 -it postgres:14.1-alpine
 ```
 
-<br>
+- Usamos **caminhos relativos**: em `tsconfig.json`, dentro de _compilerOptions_, acrescentando a opção `"baseUrl": "."` -> ver [doc](https://nextjs.org/docs/advanced-features/module-path-aliases) do Next
 
-## Como rodar o projeto?
+- Adicionamos **autoformatação**, criando o arquivo `.prettierrc` e incluindo no no `settings.json` do vscode:
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-### Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```json
+"[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+},
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br>
 
 ### Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+

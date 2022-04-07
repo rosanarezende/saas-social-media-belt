@@ -130,7 +130,7 @@ interface Props {
 const Links = ({ children }: Props) => {
   return (
     <>
-      <div className='grid grid-cols-1 md:grid-cols-2'>
+      <div className='grid grid-cols-1 md:grid-cols-2 mb-8'>
         <div>
           <Heading1>Gerenciador de Links</Heading1>
           <Heading2>Gerenciador de links</Heading2>
@@ -143,6 +143,7 @@ const Links = ({ children }: Props) => {
           >
             Criar Link
           </button>
+
           <button
             type='button'
             className='w-full border text-base font-medium text-black bg-white hover:bg-gray-100 px-4 py-2'
