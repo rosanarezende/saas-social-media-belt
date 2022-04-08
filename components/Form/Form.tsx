@@ -1,4 +1,4 @@
-import Heading2 from 'components/Heading2'
+import Heading2 from 'components/Heading/Heading2'
 import React from 'react'
 import {
   SubmitHandler,

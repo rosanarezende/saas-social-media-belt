@@ -3,8 +3,8 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import Heading1 from 'components/Heading1'
-import Heading2 from 'components/Heading2'
+import Heading1 from 'components/Heading/Heading1'
+import Heading2 from 'components/Heading/Heading2'
 import Form from 'components/Form/Form'
 
 interface NewLinkInputs {

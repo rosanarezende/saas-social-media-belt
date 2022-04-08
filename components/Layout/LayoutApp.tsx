@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import MenuItem from 'components/MenuItem'
+import MenuItem from 'components/Menu/MenuItem'
 
 interface Props {
   children: React.ReactNode

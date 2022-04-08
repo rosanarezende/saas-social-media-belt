@@ -1,5 +1,5 @@
-import Heading1 from 'components/Heading1'
-import Heading2 from 'components/Heading2'
+import Heading1 from 'components/Heading/Heading1'
+import Heading2 from 'components/Heading/Heading2'
 
 const Home = () => {
   return (
