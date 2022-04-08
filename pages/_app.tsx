@@ -15,9 +15,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     Layout = LayoutApp
   }
 
-  if (pathname.includes('/[slug]')) {
-    Layout = LayoutTenant
-  }
+  // if (pathname.includes('/[slug]')) {
+  //   Layout = LayoutTenant
+  // }
 
   return (
     <Layout>

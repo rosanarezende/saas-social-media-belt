@@ -19,7 +19,7 @@ Software de gerenciamento de links compartilhados.
 - [NextJS](https://nextjs.org/): Framework React (projeto criado com `npx create-next-app@latest --ts`)
 - [Vercel](https://vercel.com/) - [platforms](https://github.com/vercel/platforms): para deployment
 - [Tailwindcss](https://tailwindcss.com/docs/guides/nextjs): para estilização/CSS (inclusive usamos um template do [Tail-kit](https://www.tailwind-kit.com/templates/datadashboard), adaptando o [html para jsx](https://magic.reactjs.net/htmltojsx.htm) )
-- [React Hook Form](https://react-hook-form.com/)
+- [React Hook Form](https://react-hook-form.com/): manipulação de formulários
 - [Yup](https://github.com/jquense/yup) - [schema validation](https://react-hook-form.com/get-started#SchemaValidation)
 
 
