@@ -44,7 +44,7 @@ const Form = ({
 
       <div className='space-y-6 bg-white'>
         {inputGroups?.map((inputGroup, index) => (
-          <>
+          <div key={index}>
             <InputGroup
               title={inputGroup?.title}
               inputs={inputGroup?.inputs}
@@ -52,7 +52,7 @@ const Form = ({
               errors={errors}
             />
             <hr />
-          </>
+          </div>
         ))}
 
         <div className='w-full px-4 pb-4 ml-auto text-gray-500 md:w-1/3'>
