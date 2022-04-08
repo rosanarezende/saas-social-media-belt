@@ -24,11 +24,11 @@ Software de gerenciamento de links compartilhados.
 
 
 **Backend**:
-- [Docker](https://www.docker.com/)
-- [Prisma](https://www.prisma.io/): ORM (para acesso ao DB)
-- [PostegreSQL](https://www.postgresql.org/) - DB.
-- [Cockroach](https://www.cockroachlabs.com/) - provedor.
-- [Beekeeper Studio](https://www.beekeeperstudio.io/)
+- [PostegreSQL](https://www.postgresql.org/): banco de dados
+- [Prisma](https://www.prisma.io/): ORM (para acesso ao banco)
+- [Cockroach](https://www.cockroachlabs.com/): provedor
+- [Beekeeper Studio](https://www.beekeeperstudio.io/): para manipular o banco local
+- [Docker](https://www.docker.com/) - para ter o postgres rodando local, facilitando os testes
 
 <br>
 
