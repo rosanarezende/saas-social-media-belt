@@ -28,7 +28,11 @@ Software de gerenciamento de links compartilhados.
 - [Prisma](https://www.prisma.io/): ORM (para acesso ao banco)
 - [Cockroach](https://www.cockroachlabs.com/): provedor
 - [Beekeeper Studio](https://www.beekeeperstudio.io/): para manipular o banco local
-- [Docker](https://www.docker.com/) - para ter o postgres rodando local, facilitando os testes
+- [Docker](https://www.docker.com/): para ter o postgres rodando local, facilitando os testes
+- [NextAuth](https://next-auth.js.org/): para autenticação
+  - versão para [TypeScript](https://github.com/nextauthjs/next-auth-typescript-example/blob/main/pages/api/auth/%5B...nextauth%5D.ts)
+  - servindo como [adapter o Prisma](https://next-auth.js.org/adapters/prisma)
+  - usando como [provider o Github](https://next-auth.js.org/providers/github)
 
 <br>
 

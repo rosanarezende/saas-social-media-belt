@@ -26,12 +26,12 @@ OBS: será **multi tenant**, ou seja, uma base de código atendendo todos os cli
 
 ## Dados
 
-- Account (tenant):
+- Tenants (tenant):
   - id, slug (devpleno), plan, name, image (logo)
-- AccountUser:
-  - account_id, user_id, role
-- AccountDomain:
-  - id, account_id, domain, status
+- TenantUser:
+  - tenant_id, user_id, role
+- TenantDomain:
+  - id, tenant_id, domain, status
 - User:
   - id, email, name
 - Subscription:
@@ -39,11 +39,11 @@ OBS: será **multi tenant**, ou seja, uma base de código atendendo todos os cli
 - UTMs:
   - utm_source, utm_media, ...
 - Link
-  - id, account_id, name, public_name, destination, slug, show_on_public
+  - id, tenant_id, name, public_name, destination, slug, show_on_public
 - LinkGroup:
-  - id, account_id, name (n:m - Link), show_on_public
+  - id, tenant_id, name (n:m - Link), show_on_public
 - ShareableLink:
-  - id, account_id, link_id, utm_id, analytics
+  - id, tenant_id, link_id, utm_id, analytics
 
 <br>
 
@@ -101,6 +101,7 @@ Para simplificar os testes, precisamos ter um **postgres rodando local**:
 ```
 docker run --name basic-postgres --rm -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=123456 -e PGDATA=/var/lib/postgresql/data/pgdata -v /tmp:/var/lib/postgresql/data -p 5432:5432 -it postgres:14.1-alpine
 ```
+  - no `.env` colocaremos o DATABASE_URL, por exemplo: `"postgresql://postgres:123456@localhost:5432/socialmediabelt?schema=public"`
 
 - Usamos **caminhos relativos**: em `tsconfig.json`, dentro de _compilerOptions_, acrescentando a opção `"baseUrl": "."` -> ver [doc](https://nextjs.org/docs/advanced-features/module-path-aliases) do Next
 
@@ -112,6 +113,38 @@ docker run --name basic-postgres --rm -e POSTGRES_USER=postgres -e POSTGRES_PASS
     "editor.formatOnSave": true
 },
 ```
+
+<br>
+
+Para a autenticação com **NextAuth** usamos o Github como provider. Foi necessário...
+
+---- VERSÃO COM ERRO
+
+ criar um novo app: [https://github.com/settings/apps/my-social-media-belt](https://github.com/settings/apps/my-social-media-belt)
+- entrar [GitHub Apps](https://github.com/settings/apps)
+- clicar em `New GitHub App`, epreencher dados, como:
+  - GitHub App name: Social Media Belt
+  - Homepage URL: http://localhost:3000/
+  - Webhook URL: http://localhost:3000/api/auth/callback/github (não dá pra usar localhost... resolver isso mais pra frente - [exemplo](https://hookdeck.com/webhooks/platforms/getting-started-github-webhooks#what-are-github-webhooks))
+  - Where can this GitHub App be installed? Any account
+- vão ser gerados valores de GITHUB_ID e GITHUB_SECRET, que colocaremos no arquivo `.env`
+- também é necessário inserir no `.env` [NEXTAUTH_URL](https://next-auth.js.org/configuration/options)
+
+---- SEGUNDA VERSÃO (essa correta) ---
+
+... foi necessário usar o [OAuth application](https://github.com/settings/developers)
+- clicar em `Register a new application`
+  - Application name:Social Media Belt
+  - Homepage URL: http://localhost:3000
+  - Authorization callback URL: http://localhost:3000/api/auth/callback/github
+- aí sim gerar o GITHUB_SECRET e o GITHUB_ID que será colocado no `.env`
+
+--- mas continuou dando erro ----
+
+agora reclama de NEXTAUTH_URL, então colocamos http://localhost:3000
+
+mas faltava também ir no arquivo `pages/api/auth/[...nextauth].ts` e comentar o jwt
+
 
 <br>
 
